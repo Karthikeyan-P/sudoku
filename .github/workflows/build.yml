@@ -33,6 +33,15 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Debug Flutter Gradle scripts
+        run: ls $FLUTTER_ROOT/packages/flutter_tools/gradle/
+
+      - name: Debug Flutter plugins file
+        run: |
+          cat .flutter-plugins || echo ".flutter-plugins NOT FOUND"
+          cat .flutter-plugins-dependencies || echo ".flutter-plugins-dependencies NOT FOUND"
+
+
       - name: Build APK
         run: flutter build apk --release
 
